@@ -1320,7 +1320,7 @@ INSN(lddw, d, load_store, load, C64X_AND_C67X,
 
 /* 16 bits insn */
 INSN(lddw, d, dpp, load, C64XP,
-     TIC6X_FLAG_STORE|TIC6X_FLAG_NO_CROSS|TIC6X_FLAG_INSN16_MEM_MODE(PREINCR)|TIC6X_FLAG_INSN16_B15PTR|TIC6X_FLAG_INSN16_NORS,
+     TIC6X_FLAG_LOAD|TIC6X_FLAG_NO_CROSS|TIC6X_FLAG_INSN16_MEM_MODE(PREINCR)|TIC6X_FLAG_INSN16_B15PTR|TIC6X_FLAG_INSN16_NORS,
      FIX2(FIX(op, 1), FIX(dw, 1)),
      OP2(ORMEMSD, OWDREGD5),
      ENC4(ENC(s, fu, 0), ENC(t, rside, 0), ENC(srcdst, reg, 1),
@@ -1477,8 +1477,8 @@ INSN(ldnw, d, load_store, load, C64X,
 	  ENC(srcdst, reg, 1)))
 
 /* 16 bits insn */
-INSN(ldnw, d, doff4_dsz_110, store, C64XP,
-     TIC6X_FLAG_STORE|TIC6X_FLAG_NO_CROSS|TIC6X_FLAG_INSN16_MEM_MODE(POSITIVE),
+INSN(ldnw, d, doff4_dsz_110, load, C64XP,
+     TIC6X_FLAG_LOAD|TIC6X_FLAG_NO_CROSS|TIC6X_FLAG_INSN16_MEM_MODE(POSITIVE),
      FIX2(FIX(op, 1), FIX(sz, 1)),
      OP2(ORMEMSW, OWTREG5),
      ENC5(ENC(s, fu, 0), ENC(t, rside, 0), ENC(srcdst, reg, 1),
