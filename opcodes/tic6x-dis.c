@@ -1497,7 +1497,8 @@ print_insn_tic6x (bfd_vma addr, struct disassemble_info *info)
 	  else
 	    info->fprintf_func (info->stream, "%s", operands[op_num]);
 	}
-      if (fetch_packet_header_based && header.prot)
+      if (fetch_packet_header_based && header.prot
+	  && opc->flags & TIC6X_FLAG_LOAD)
 	info->fprintf_func (info->stream, " || nop 5");
 
       return num_bits / 8;
