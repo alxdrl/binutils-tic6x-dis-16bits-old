@@ -912,7 +912,8 @@ print_insn_tic6x (bfd_vma addr, struct disassemble_info *info)
 		  fld_val <<= 1;
 		  /* Fall through.  */
 		case tic6x_coding_reg:
-                  if (num_bits == 16 && header.rs && !(opc->flags & TIC6X_FLAG_INSN16_NORS))
+                  if (num_bits == 16 && header.rs && !(opc->flags & TIC6X_FLAG_INSN16_NORS)
+                      && tic6x_field_width(field) < 5)
                     {
 		      reg_base = 16;
                     }
